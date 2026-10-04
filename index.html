@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#edf3ee">
+  <title>Joystick Parking Simulator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <button class="brand" data-screen="home" aria-label="Joystick Parking Simulator home"><span class="brand-icon">P<span>↗</span></span><span>PARK<span class="brand-light">LAB</span><small>JOYSTICK PARKING SIMULATOR</small></span></button>
+      <nav aria-label="Main navigation">
+        <button data-screen="home" class="nav-link active">Overview</button>
+        <button data-screen="instructions" class="nav-link">How to play</button>
+        <button data-screen="connection" class="nav-link">Hardware</button>
+      </nav>
+      <button class="connection-pill" data-screen="connection"><span class="status-dot"></span><span id="header-connection">Keyboard mode</span><span>↗</span></button>
+    </header>
+
+    <main>
+      <section id="home" class="screen active" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="tiny-square"></span> SMALL JOYSTICK. BIG POSSIBILITIES.</div>
+            <h1 id="home-title">Your next move.<br>Your perfect <span>park.</span></h1>
+            <p class="hero-subtitle">Joystick Parking Simulator</p>
+            <p class="muted hero-description">Control a virtual car using a physical joystick connected through an ESP32. A little precision goes a long way.</p>
+            <div class="hero-actions"><button class="button primary" data-screen="levels">Start game <span>↗</span></button><button class="button secondary" data-screen="instructions">How to play <span>→</span></button></div>
+            <button class="text-button" data-screen="connection">⌁ Connect joystick <span>→</span></button>
+            <div class="hero-note"><span class="keyboard-icon">⌨</span> No hardware? Your keyboard works too.</div>
+          </div>
+          <div class="preview-card" aria-label="Illustration of the parking simulator">
+            <div class="preview-top"><span><span class="live-dot"></span> THE PRACTICE LOT</span><span>01 / 03</span></div>
+            <div class="preview-lot">
+              <div class="preview-bays"><i></i><i></i><i></i><i></i></div>
+              <div class="preview-target"><span>P</span><small>YOUR SPOT</small></div>
+              <div class="preview-route"></div>
+              <div class="car preview-car"><i class="windshield"></i><i class="roof"></i><i class="rear-window"></i><i class="lights"></i></div>
+              <div class="parked-car preview-parked one"></div><div class="parked-car preview-parked two"></div>
+              <div class="cone preview-cone cone-one"></div><div class="cone preview-cone cone-two"></div>
+              <span class="lot-entry">ENTRY ↑</span><span class="lot-word">SLOW</span>
+            </div>
+            <div class="preview-bottom"><span><span class="mint-dot"></span> Drive • Avoid • Park • Score</span><span>TAKE IT SLOW ↗</span></div>
+            <div class="floating-tag"><span>✓</span><div>A little focus.<br><strong>A perfect finish.</strong></div></div>
+          </div>
+        </div>
+        <div class="section-label"><h2>Three levels. One smooth driver.</h2><span>THE CHALLENGE</span></div>
+        <div class="level-grid" id="home-levels">
+          <button class="level-card" data-level="0"><span class="level-number">01</span><span class="level-info"><span class="difficulty">GET COMFORTABLE</span><strong>Straight parking</strong><small>A clear path to your first perfect park.</small></span><span class="card-arrow">↗</span></button>
+          <button class="level-card" data-level="1"><span class="level-number">02</span><span class="level-info"><span class="difficulty">FIND YOUR WAY</span><strong>Turning parking</strong><small>A few turns. A little more precision.</small></span><span class="card-arrow">↗</span></button>
+          <button class="level-card" data-level="2"><span class="level-number">03</span><span class="level-info"><span class="difficulty">MAKE IT COUNT</span><strong>Reverse & tight parking</strong><small>Back into a spot that fits just right.</small></span><span class="card-arrow">↗</span></button>
+        </div>
+        <div class="tech-strip"><span>BUILT TO LEARN<span class="tech-separator">/</span></span><span><strong>HTML</strong> → Structure</span><span><strong>CSS</strong> → Design</span><span><strong>JavaScript</strong> → Interaction</span><span><strong>ESP32</strong> → Joystick bridge</span></div>
+      </section>
+
+      <section id="instructions" class="screen hidden" aria-labelledby="instructions-title">
+        <div class="page-heading"><div class="eyebrow">A QUICK TEST DRIVE</div><h1 id="instructions-title" tabindex="-1">Small moves. Smooth parking.</h1><p class="muted">Use a joystick, your arrow keys, or the on-screen controls.</p></div>
+        <div class="two-columns"><article class="panel"><h2>You're in control</h2><div class="control-list"><p><kbd>↑</kbd><span><strong>Forward</strong>Move toward the top of the lot.</span></p><p><kbd>↓</kbd><span><strong>Reverse</strong>Move backward toward the bottom.</span></p><p><kbd>←</kbd><kbd>→</kbd><span><strong>Steer left / right</strong>Move sideways with a gentle steering tilt.</span></p><p><kbd>Space</kbd><span><strong>Start · Select · Park · Confirm</strong>Same as pressing the joystick button.</span></p><p><kbd>Esc</kbd><span><strong>Pause / resume</strong>Take a break whenever you need.</span></p></div></article><article class="panel"><h2>The perfect parking recipe</h2><ol class="rules"><li>Follow the route to the mint-green parking space.</li><li>Avoid parked cars, barriers, and the striped boundaries.</li><li>Move the whole car inside the marked space.</li><li>Release the controls to stop and straighten the car.</li><li>Press Space / the joystick button, or stay still for one second.</li></ol><div class="tip">Start with <strong>100 points</strong>. Park for <strong>+50</strong>. Obstacles cost <strong>20</strong> and boundaries cost <strong>10</strong>. You can always try again.</div><p class="muted small">This is an arcade simulator: left and right move sideways. Level 3 asks you to reverse into the bay. Finish before the level's countdown runs out.</p></article></div>
+        <div class="page-actions"><button class="button secondary" data-screen="home">← Back</button><button class="button secondary" data-screen="connection">Connect joystick</button><button class="button primary" data-screen="levels">Let's drive ↗</button></div>
+      </section>
+
+      <section id="connection" class="screen hidden" aria-labelledby="connection-title">
+        <div class="page-heading"><div class="eyebrow">FROM YOUR DESK TO THE DRIVEWAY</div><h1 id="connection-title" tabindex="-1">Connect your joystick.</h1><p class="muted">One USB cable connects your ESP32 to the parking lot.</p></div>
+        <div class="two-columns"><article class="panel"><div class="panel-heading"><h2>Joystick bridge</h2><span id="serial-status" class="badge disconnected">● DISCONNECTED</span></div><div class="signal-visual"><div class="joystick-symbol">⌁</div><span>······</span><div class="chip-symbol">ESP32</div><span>······</span><div class="screen-symbol">P</div></div><div class="telemetry"><div><span>X AXIS</span><strong id="axis-x">0.00</strong></div><div><span>Y AXIS</span><strong id="axis-y">0.00</strong></div><div><span>DIRECTION</span><strong id="axis-direction">CENTER</strong></div></div><p class="small muted">Connection: <strong id="connection-type">Not connected</strong> · 115200 baud</p><p id="serial-message" class="connection-message" role="status">Keyboard controls are ready. Connect an ESP32 whenever you like.</p><div class="page-actions"><button id="connect-button" class="button primary">Connect ESP32 ↗</button><button id="disconnect-button" class="button secondary" disabled>Disconnect</button></div></article><article class="panel"><h2>Ready, plug, play.</h2><ol class="rules"><li>Upload the included joystick sketch to your ESP32.</li><li>Connect the board with a USB data cable.</li><li>Close the Arduino Serial Monitor so the port is free.</li><li>Click <strong>Connect ESP32</strong>, then select your board.</li><li>Move the joystick and watch the live values change.</li></ol><div class="tip">Use a desktop browser with Web Serial support, such as Chrome or Edge. Permission is only requested when you click Connect.</div><p class="small muted">Your game works without a board. If serial isn't available, keep playing with your keyboard or the on-screen buttons.</p></article></div>
+        <div class="page-actions"><button class="button secondary" data-screen="home">← Back</button><button class="button primary" data-screen="levels">Continue to the lot →</button></div>
+      </section>
+
+      <section id="levels" class="screen hidden" aria-labelledby="levels-title">
+        <div class="page-heading"><div class="eyebrow">PRACTICE MAKES PRECISE</div><h1 id="levels-title" tabindex="-1">Pick your parking challenge.</h1><p class="muted">Start at level 1, or practice any level. Complete all three for your final result.</p></div>
+        <div id="level-selection" class="level-grid selection-grid"></div>
+        <div class="panel session-panel"><span id="session-progress">0 of 3 levels complete</span><button class="text-button" id="reset-progress">Reset challenge ↻</button></div>
+        <button class="button secondary" data-screen="home">← Main menu</button>
+      </section>
+
+      <section id="game" class="screen hidden" aria-labelledby="game-title">
+        <div class="game-heading"><div><div class="eyebrow" id="level-eyebrow">LEVEL 01 / 03</div><h1 id="game-title" tabindex="-1">Straight parking</h1></div><button id="pause-button" class="button secondary">Ⅱ Pause <small>Esc</small></button></div>
+        <div class="game-layout"><div class="lot-column"><div class="hud"><div><span>SCORE</span><strong id="score-value">100</strong></div><div><span>TIME</span><strong id="time-value">00:00</strong></div><div><span>TIME LEFT</span><strong id="remaining-value">03:00</strong></div><div><span>COLLISIONS</span><strong id="collision-value">0</strong></div></div><div id="parking-lot" class="parking-lot" aria-label="Parking lot. Use arrow keys to move your car."><div class="lot-surface"><span class="road-label">PARKLAB / PRACTICE ZONE</span><div id="parking-zone" class="parking-zone"><span>P</span><small>PARK HERE</small></div><div id="obstacles"></div><div id="player-car" class="car"><i class="windshield"></i><i class="roof"></i><i class="rear-window"></i><i class="lights"></i></div><span id="start-marker">START ↑</span></div><div id="collision-flash" class="collision-flash hidden">COLLISION</div></div><div class="lot-caption"><span id="game-input-label">⌨ Keyboard Controls Active</span><span>PRECISION OVER SPEED</span></div></div>
+        <aside class="game-sidebar"><div class="panel mission-panel"><div class="eyebrow">YOUR MISSION</div><h2 id="mission-title">Keep it straight.</h2><p id="mission-description" class="muted"></p><div class="parking-progress"><div id="parking-progress-fill"></div></div><p id="game-message" class="small" role="status">Head for the marked parking space.</p></div><div class="panel drive-panel"><h2>Take the wheel</h2><p class="muted small">Arrow keys or press and hold.</p><div class="d-pad"><button data-drive="UP" aria-label="Drive forward">↑</button><button data-drive="LEFT" aria-label="Move left">←</button><button id="park-button" aria-label="Confirm parking">P</button><button data-drive="RIGHT" aria-label="Move right">→</button><button data-drive="DOWN" aria-label="Drive backward">↓</button></div><p class="small muted"><kbd>Space</kbd> to park · <kbd>Esc</kbd> to pause</p></div><div class="small sidebar-note"><span class="mint-dot"></span> Easy does it. You've got this.</div></aside></div>
+      </section>
+
+      <section id="result" class="screen hidden" aria-labelledby="result-title"><div class="result-card"><div id="result-icon" class="result-icon">✓</div><div id="result-eyebrow" class="eyebrow">SPACE FOUND. CHALLENGE COMPLETE.</div><h1 id="result-title" tabindex="-1">Parking successful!</h1><p id="result-description" class="muted">Great parking!</p><div id="result-stats" class="result-stats"></div><div id="result-actions" class="page-actions"></div></div></section>
+    </main>
+    <footer><span><span class="footer-mark">P↗</span> A little code. A lot of possibilities.</span><span>GRADE 7 PROJECT <span class="footer-dot">•</span> BUILT WITH HTML, CSS & JS</span></footer>
+  </div>
+  <dialog id="pause-dialog" aria-labelledby="pause-title"><div class="pause-content"><div class="result-icon">Ⅱ</div><div class="eyebrow">TAKE A BREATHER</div><h2 id="pause-title">Game paused</h2><p class="muted">Your car and timer will wait right here.</p><button id="resume-button" class="button primary">Resume →</button><button id="restart-button" class="button secondary">Restart level</button><button id="pause-menu-button" class="text-button">Main menu</button></div></dialog>
+</body>
+</html>
