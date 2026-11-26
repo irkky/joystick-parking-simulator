@@ -1,8 +1,8 @@
 // Joystick Parking Simulator — separate hardware bridge, not website code.
 // For an original ESP32 DevKit / ESP32-WROOM board.
-// Joystick VCC -> 3.3V, GND -> GND, VRx -> 34, VRy -> 35, SW -> 27.
-const int X_PIN = 34;
-const int Y_PIN = 35;
+// Joystick VCC -> 3.3V, GND -> GND, VRx -> 35, VRy -> 34, SW -> 27.
+const int X_PIN = 35;
+const int Y_PIN = 34;
 const int BUTTON_PIN = 27;
 const bool INVERT_X = false; // Change if left and right are reversed.
 const bool INVERT_Y = false; // Change if up and down are reversed.
